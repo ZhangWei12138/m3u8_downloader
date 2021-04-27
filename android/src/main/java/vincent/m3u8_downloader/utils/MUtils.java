@@ -63,8 +63,8 @@ public class MUtils {
                                 // 去获取key
                                 v = v.replaceAll("\"", "");
                                 v = v.replaceAll("'", "");
-                                String keyUrl = basePath + v;
-                                BufferedReader keyReader = new BufferedReader(new InputStreamReader(new URL(keyUrl).openStream()));
+                                String keyUrl = v.startsWith("http") ? v : (basePath + v);
+                                BufferedReader keyReader = new BufferedReader(new InputStreamReader(new URL(keyUrl).openStream(),"ISO-8859-1"));
                                 ret.setKey(keyReader.readLine());
                             } else if (k.equals("IV")) {
                                 ret.setIv(v);

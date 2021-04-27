@@ -254,7 +254,7 @@ class M3U8DownloadTask {
         if (!TextUtils.isEmpty(m3U8.getKey())) {
             // 保存key文件
             try {
-                MUtils.saveFile(m3U8.getKey(), saveDir + File.separator + "key.key");
+                MUtils.saveFile(m3U8.getKey().getBytes("ISO-8859-1"), saveDir + File.separator + "key.key");
             } catch (IOException e) {
                 e.printStackTrace();
                 handlerError(e);
